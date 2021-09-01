@@ -5,13 +5,33 @@ const cellTemplate = document.createElement("div");
 emptyCellTemplate.classList.add("emptyCell");
 cellTemplate.classList.add("cell");
 
+// let grid = [
+//   [0, 0, 0, 0, 0],
+//   [0, 0, 0, 0, 0],
+//   [0, 0, 0, 0, 0],
+//   [0, 0, 0, 0, 0],
+//   [0, 0, 0, 0, 0],
+// ];
+// let grid = [
+//   [0, 0, 0],
+//   [0, 0, 0],
+//   [0, 0, 0],
+// ];
 let grid = [
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
 ];
+
+gridContainer.setAttribute(
+  "grid-template-columns",
+  `repeat(${grid.length},1fr)`
+);
+
+gridContainer.setAttribute("grid-template-rows");
+gridContainer.style.gridTemplateRows(`repeat(${grid.length},1fr)`);
+gridContainer.style.gridTemplateColumns(`repeat(${grid.length},1fr)`);
 
 const drawGrid = () => {
   count = 0;

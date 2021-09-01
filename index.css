@@ -1,6 +1,6 @@
 :root {
   --cellSide: 100px;
-  --bg-color: teal;
+  --bg-color: gray;
 }
 * {
   margin: 0;
@@ -30,8 +30,6 @@ body {
 
 .gameGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  height: 500px;
-  width: 500px;
+  height: 100px;
+  width: 100px;
 }
