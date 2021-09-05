@@ -1,27 +1,30 @@
-:root {
-  --cellSide: 100px;
-  --bg-color: gray;
-}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --cellSide: 50px;
+  --bg-color: gray;
+}
+
 body {
   background-color: var(--bg-color);
   height: 100vh;
+  width: 100%;
   display: grid;
   place-items: center;
 }
-.cell {
+
+.aliveCell {
   height: var(--cellSide);
   width: var(--cellSide);
   background-color: black;
-  border: 1px black solid;
+  border: 1px white solid;
 }
 
-.emptyCell {
+.deadCell {
   height: var(--cellSide);
   width: var(--cellSide);
   background-color: white;
@@ -30,6 +33,4 @@ body {
 
 .gameGrid {
   display: grid;
-  height: 100px;
-  width: 100px;
 }

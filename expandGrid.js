@@ -4,7 +4,6 @@ export const expandGrid = (grid) => {
     grid[i].push(0);
     grid[i].unshift(0);
   }
-  grid.push(OuterCells);
-  grid.unshift(OuterCells);
-  console.log(grid);
+  grid.push([...OuterCells, 0, 0]);
+  grid.unshift([...OuterCells, 0, 0]);
 };
