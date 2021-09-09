@@ -37,7 +37,7 @@ let count = 0;
 let gameCycle = setInterval(() => {
   if (cycling.value === true) {
     count++;
-    if (count > 1) {
+    if (count > 100) {
       count = 0;
       grid = evolveGrid(grid);
     }
