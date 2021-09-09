@@ -5,38 +5,36 @@
 // Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction
 
 export const evolveGrid = (grid) => {
-  const evolvedGrid = grid.slice();
+  let evolvedGrid = JSON.parse(JSON.stringify(grid));
   for (let i = 0; i < grid.length; i++) {
     for (let k = 0; k < grid[i].length; k++) {
       let targetedCell = grid[i][k];
       let aliveNeighbours = 0;
       if (grid[i - 1]) {
-        if (grid[i - 1][k - 1] == 1) aliveNeighbours++;
-        if (grid[i - 1][k] == 1) aliveNeighbours++;
-        if (grid[i - 1][k + 1] == 1) aliveNeighbours++;
+        if (grid[i - 1][k - 1] === 1) aliveNeighbours++;
+        if (grid[i - 1][k] === 1) aliveNeighbours++;
+        if (grid[i - 1][k + 1] === 1) aliveNeighbours++;
       }
       if (grid[i]) {
-        if (grid[i][k - 1] == 1) aliveNeighbours++;
-        if (grid[i][k + 1] == 1) aliveNeighbours++;
+        if (grid[i][k - 1] === 1) aliveNeighbours++;
+        if (grid[i][k + 1] === 1) aliveNeighbours++;
       }
       if (grid[i + 1]) {
-        if (grid[i + 1][k - 1] == 1) aliveNeighbours++;
-        if (grid[i + 1][k] == 1) aliveNeighbours++;
-        if (grid[i + 1][k + 1] == 1) aliveNeighbours++;
+        if (grid[i + 1][k - 1] === 1) aliveNeighbours++;
+        if (grid[i + 1][k] === 1) aliveNeighbours++;
+        if (grid[i + 1][k + 1] === 1) aliveNeighbours++;
       }
       // rule 1
-      if (targetedCell == 1 && aliveNeighbours < 2) evolvedGrid[i][k] = 0;
+      if (targetedCell === 1 && aliveNeighbours < 2) evolvedGrid[i][k] = 0;
       // rule 2
-      if (targetedCell == 1 && (aliveNeighbours == 2 || aliveNeighbours == 3)) {
+      if (targetedCell === 1 && aliveNeighbours === (2 || 3)) {
         evolvedGrid[i][k] = 1;
       }
       //rule3
-      if (targetedCell == 1 && aliveNeighbours > 3) evolvedGrid[i][k] = 0;
+      if (targetedCell === 1 && aliveNeighbours > 3) evolvedGrid[i][k] = 0;
       // rule 4
-      if (targetedCell == 0 && aliveNeighbours == 2) evolvedGrid[i][k] = 1;
+      if (targetedCell === 0 && aliveNeighbours === 3) evolvedGrid[i][k] = 1;
     }
   }
-  console.log(grid);
-  console.log(evolvedGrid);
   return evolvedGrid;
 };
